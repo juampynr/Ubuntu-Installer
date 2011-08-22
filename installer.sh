@@ -3,10 +3,7 @@ sudo apt-get update
 sudo apt-get install -y firefox firebug
 sudo apt-get install -y ubuntu-restricted-extras vlc
 sudo apt-get install -y sun-java6-jdk
-sudo apt-get install -y libdvdcss2  #para dvds encriptados
-sudo apt-get install -y w32codecs
-sudo apt-get install -y libcurl3
-sudo apt-get install -y gthumb
+sudo apt-get install -y w32codecs libcurl3 gthumb trash-cli
 
 # Apache and PHP
 sudo apt-get install -y apache2 php5-mysql libapache2-mod-php5 mysql-server php-pear mailutils postfix
@@ -35,8 +32,8 @@ sudo pear install -y PHP_CodeSniffer-1.3.0RC1
 sudo pear channel-discover pear.phing.info
 sudo pear install phing/phing
 
-# Tools
-sudo apt-get -y install vim vim-full vim-gnome
+# Editing Tools
+sudo apt-get -y install vim vim-gnome
 sudo apt-get -y install xchat
 git clone git://github.com/mmacia/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
