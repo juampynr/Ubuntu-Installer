@@ -5,6 +5,10 @@ sudo apt-get install -y ubuntu-restricted-extras vlc
 sudo apt-get install -y sun-java6-jdk
 sudo apt-get install -y w32codecs libcurl3 gthumb trash-cli
 
+# DVD support
+sudo apt-get install -y libdvdread4
+sudo /usr/share/doc/libdvdread4/install-css.sh
+
 # Apache and PHP
 sudo apt-get install -y apache2 php5-mysql libapache2-mod-php5 mysql-server php-pear mailutils postfix
 sudo apt-get install -y php5-xsl php5-gd php5-curl
