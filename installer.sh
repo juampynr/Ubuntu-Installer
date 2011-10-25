@@ -1,9 +1,12 @@
 # General Tools
 sudo apt-get update
-sudo apt-get install -y firefox firebug
+sudo apt-get install -y trash-cli
 sudo apt-get install -y ubuntu-restricted-extras vlc
 sudo apt-get install -y sun-java6-jdk
 sudo apt-get install -y w32codecs libcurl3 gthumb trash-cli
+
+# Browsers
+sudo apt-get install -y firefox firebug chromium-browser
 
 # DVD support
 sudo apt-get install -y libdvdread4
