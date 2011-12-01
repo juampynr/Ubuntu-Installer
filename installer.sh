@@ -6,7 +6,10 @@ sudo apt-get install -y sun-java6-jdk
 sudo apt-get install -y w32codecs libcurl3 gthumb trash-cli
 
 # Browsers
-sudo apt-get install -y firefox firebug chromium-browser
+sudo apt-get install -y firefox firebug
+sudo add-apt-repository -y ppa:chromium-daily
+sudo apt-get update
+sudo apt-get install -y chromium-browser
 
 # DVD support
 sudo apt-get install -y libdvdread4
