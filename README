@@ -1,5 +1,7 @@
-Install script to quickly set up an Ubuntu box for a PHP-Drupal Programmer.
+Install script that sets up an Ubuntu box for a PHP-Drupal Programmer.
 
-Open it up, remove all the software that you do not need and finally run it with the following command:
+Open it up, remove all the software that you do not need and run it from your home directory with the following command:
 
-  sudo sh installer.sh
+sh installer.sh
+
+It will ask you for sudo permission when needed.

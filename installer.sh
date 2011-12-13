@@ -59,6 +59,15 @@ chown -R juampy:juampy ~/.dotfiles
 cd ~/.dotfiles
 ./setup.sh
 
+# Drush 4.5
+wget  http://ftp.drupal.org/files/projects/drush-7.x-4.5.tar.gz
+tar -zxvf drush-7.x-4.5.tar.gz
+rm -rf drush-7.x-4.5.tar.gz
+chmod u+x drush/drush
+sudo mv drush /usr/share/
+sudo ln -s /usr/share/drush/drush /usr/bin/drush
+sudo drush status
+
 # Aegir
 sudo su
 sudo apt-get -y install apache2 php5 php5-cli php5-gd php5-mysql postfix sudo rsync git-core unzip drush
