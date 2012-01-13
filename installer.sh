@@ -34,12 +34,19 @@ git config --global user.email juampy72@gmail.com
 
 # PHP tools
 sudo apt-get install -y php5-dev
-sudo pear channel-discover pear.phpunit.de
-sudo pear install phpunit/PHPUnit
 sudo pecl install xdebug-beta  #Need to enable extension manually in php.ini by adding "extension=xdebug.so"
 sudo pear install -y PHP_CodeSniffer-1.3.0RC1
 sudo pear channel-discover pear.phing.info
 sudo pear install phing/phing
+
+# phpunit
+sudo apt-get install php-pear
+sudo pear channel-discover pear.phpunit.de
+sudo pear channel-discover components.ez.no
+sudo pear channel-discover pear.symfony-project.com
+sudo pear update-channels
+sudo pear upgrade
+sudo pear install phpunit/PHPUnit
 
 # PHP custom configuration
 sudo mv /etc/php5/cli/php.ini /etc/php5/cli/php.ini.old
