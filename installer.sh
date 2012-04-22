@@ -48,15 +48,6 @@ sudo pear update-channels
 sudo pear upgrade
 sudo pear install phpunit/PHPUnit
 
-# PHP custom configuration
-sudo mv /etc/php5/cli/php.ini /etc/php5/cli/php.ini.old
-cd /etc/php5/cli
-sudo a2enmod rewrite
-sudo ln -s ../apache2/php.ini .
-sudo sed -i 's/memory_limit = 128/memory_limit = 256/' /etc/php5/apache2/php.ini
-sudo sed -i 's/error_reportin = Off/error_reporting = On/' /etc/php5/apache2/php.ini
-sudo /etc/init.d/apache2 restart
-
 # Editing Tools
 sudo apt-get -y install vim vim-gnome
 sudo apt-get -y install xchat
@@ -66,23 +57,51 @@ chown -R juampy:juampy ~/.dotfiles
 cd ~/.dotfiles
 ./setup.sh
 
-# Drush 4.5
-wget  http://ftp.drupal.org/files/projects/drush-7.x-4.5.tar.gz
-tar -zxvf drush-7.x-4.5.tar.gz
-rm -rf drush-7.x-4.5.tar.gz
+# Drush
+wget http://ftp.drupal.org/files/projects/drush-7.x-5.1.tar.gz
+tar -zxvf drush-7.x-5.1.tar.gz
+rm -rf drush-7.x-5.1.tar.gz
 chmod u+x drush/drush
 sudo mv drush /usr/share/
 sudo ln -s /usr/share/drush/drush /usr/bin/drush
 sudo drush status
 
-# Aegir
-sudo su
-sudo apt-get -y install apache2 php5 php5-cli php5-gd php5-mysql postfix sudo rsync git-core unzip drush
-sudo ln -s /var/aegir/config/apache.conf /etc/apache2/conf.d/aegir.conf
-sudo adduser --system --group --home /var/aegir aegir
-sudo adduser aegir www-data    #make aegir a user of group www-data
-echo aegir ALL=NOPASSWD: /usr/sbin/apache2ctl >> /etc/sudoers
-su -s /bin/bash - aegir
-drush dl --destination=/var/aegir/.drush provision-6.x
-drush hostmaster-install
+# XDebug
+git clone git://github.com/derickr/xdebug.git
+cd xdebug
+phpize
+./configure --enable-xdebug
+make
+make install
+xdebug_source = `locate xdebug.so`
 
+# PHP custom configuration
+sudo sed -i 's/memory_limit = 128/memory_limit = 256/' /etc/php5/apache2/php.ini
+sudo sed -i 's/memory_limit = 128/memory_limit = 0/' /etc/php5/cli/php.ini
+sudo sed -i 's/error_reportin = Off/error_reporting = On/' /etc/php5/apache2/php.ini
+sudo sed -i 's/error_reportin = Off/error_reporting = On/' /etc/php5/cli/php.ini
+
+# Xdebug setting for the command line
+sudo cat <<<EOF >> /etc/php5/cli/php.ini
+[xdebug]
+zend_extension="xdebug_so_path"
+xdebug.auto_trace = 0
+xdebug.collect_params = 3
+xdebug.collect_return = 1
+EOF
+sudo sed -i 's/xdebug_so_path/$xdebug_source/' /etc/php5/cli/php.ini
+
+# Xdebug settings for Apache
+sudo cat <<<EOF >> /etc/php5/apache/php.ini
+[xdebug]
+zend_extension="xdebug_so_path"
+xdebug.auto_trace = 0
+xdebug.trace_enable_trigger = 1
+xdebug.collect_params = 3
+xdebug.collect_return = 1
+EOF
+sudo sed -i 's/xdebug_so_path/$xdebug_source/' /etc/php5/apache/php.ini
+
+# Apache
+sudo a2enmod rewrite
+sudo /etc/init.d/apache2 restart
