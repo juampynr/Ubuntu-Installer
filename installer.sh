@@ -88,17 +88,19 @@ zend_extension="xdebug_so_path"
 xdebug.auto_trace = 0
 xdebug.collect_params = 3
 xdebug.collect_return = 1
+xdebug.max_nesting_level = 500
 EOF
 sudo sed -i 's/xdebug_so_path/$xdebug_source/' /etc/php5/cli/php.ini
 
 # Xdebug settings for Apache
-sudo cat <<<EOF >> /etc/php5/apache/php.ini
+sudo cat <<<EOF >> /etc/php5/apache2/php.ini
 [xdebug]
 zend_extension="xdebug_so_path"
 xdebug.auto_trace = 0
 xdebug.trace_enable_trigger = 1
 xdebug.collect_params = 3
 xdebug.collect_return = 1
+xdebug.max_nesting_level = 500
 EOF
 sudo sed -i 's/xdebug_so_path/$xdebug_source/' /etc/php5/apache/php.ini
 
