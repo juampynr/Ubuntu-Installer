@@ -107,3 +107,7 @@ sudo sed -i 's/xdebug_so_path/$xdebug_source/' /etc/php5/apache/php.ini
 # Apache
 sudo a2enmod rewrite
 sudo /etc/init.d/apache2 restart
+
+# Hub for Github
+mkdir -p ~/local/bin
+curl http://defunkt.io/hub/standalone -sLo ~/local/bin/hub && chmod +x ~/local/bin/hub
