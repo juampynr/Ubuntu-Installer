@@ -29,6 +29,7 @@ git config --global color.diff auto
 git config --global color.status auto
 git config --global user.name "Juampy"
 git config --global user.email juampy72@gmail.com
+git config --global alias.st status
 cat Ubuntu-Installer/git-show-branch.txt >> $HOME/.bashrc
 
 # PHP tools
