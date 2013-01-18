@@ -1,10 +1,14 @@
 # General Tools
 sudo apt-get update
-sudo apt-get install -y trash-cli xchat curl
+sudo apt-get install -y trash-cli xchat curl python-gpgme
 sudo apt-get install -y ubuntu-restricted-extras vlc
 sudo apt-get install -y sun-java6-jdk
 sudo apt-get install -y w32codecs libcurl3 gthumb gimp trash-cli
 sudo apt-get install -y mlocate && sudo updatedb
+
+# Medibuntu
+sudo wget --output-document=/etc/apt/sources.list.d/medibuntu.list http://www.medibuntu.org/sources.list.d/$(lsb_release -cs).list && sudo apt-get --quiet update && sudo apt-get --yes --quiet --allow-unauthenticated install medibuntu-keyring && sudo apt-get --quiet update
+sudo apt-get install libdvdcss2
 
 # Browsers
 sudo apt-get install -y firefox firebug
@@ -15,8 +19,7 @@ sudo apt-get install google-chrome-stable
 # Apache and PHP
 sudo apt-get install -y apache2 php5-mysql libapache2-mod-php5 mysql-server php-pear mailutils postfix
 sudo apt-get install -y php5-xsl php5-gd php5-curl
-sudo sed '$ a\
-ServerName localhost' /etc/apache2/httpd.conf
+sudo sh -c 'echo "ServerName localhost" >> /etc/apache2/conf.d/name' && sudo service apache2 restart
 
 # Programming tools
 sudo pear channel-update pear.php.net
