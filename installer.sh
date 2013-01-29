@@ -21,6 +21,8 @@ sudo apt-get install google-chrome-stable
 sudo apt-get install -y apache2 php5-mysql libapache2-mod-php5 mysql-client-5.5 mysql-server php-pear mailutils postfix
 sudo apt-get install -y php5-xsl php5-gd php5-curl
 sudo sh -c 'echo "ServerName localhost" >> /etc/apache2/conf.d/name' && sudo service apache2 restart
+sudo a2enmod rewrite
+sudo /etc/init.d/apache2 restart
 
 # Programming tools
 sudo pear channel-update pear.php.net
@@ -41,6 +43,12 @@ sudo apt-get install -y php5-dev
 sudo pear install -y PHP_CodeSniffer-1.3.0RC1
 sudo pear channel-discover pear.phing.info
 sudo pear install phing/phing
+
+# PECL & extensions
+sudo apt-get install php-pear php5-dev
+sudo pecl install uploadprogress
+sudo echo 'extension=uploadprogress.so' >> /etc/php5/apache2/php.ini
+sudo service apache2 restart
 
 # phpunit
 sudo apt-get install php-pear
@@ -99,9 +107,10 @@ xdebug.max_nesting_level = 500
 EOF
 sudo sed -i 's/xdebug_so_path/$xdebug_source/' /etc/php5/apache2/php.ini
 
-# Apache
-sudo a2enmod rewrite
-sudo /etc/init.d/apache2 restart
+# Apache Solr
+wget http://apache.rediris.es/lucene/solr/3.6.2/apache-solr-3.6.2.tgz
+mkdir ~/software
+tar -xvzf apache-solr-3.6.2.tgz -C ~/software/
 
 # Hub for Github
 mkdir -p ~/local/bin
@@ -111,3 +120,6 @@ curl http://defunkt.io/hub/standalone -sLo ~/local/bin/hub && chmod +x ~/local/b
 cd $HOME
 drush @none dl vimrc
 drush -v vimrc-install
+
+# Virtual Box IE test machines (needs VB set up first)
+# curl -s https://raw.github.com/xdissent/ievms/master/ievms.sh | bash
