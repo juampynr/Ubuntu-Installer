@@ -2,7 +2,6 @@
 sudo apt-get update
 sudo apt-get install -y trash-cli xchat curl python-gpgme
 sudo apt-get install -y ubuntu-restricted-extras vlc
-sudo apt-get install -y sun-java6-jdk
 sudo apt-get install -y w32codecs libcurl3 gthumb gimp trash-cli
 sudo apt-get install -y mlocate && sudo updatedb
 sudo apt-get install -y gimp
@@ -108,13 +107,16 @@ EOF
 sudo sed -i 's/xdebug_so_path/$xdebug_source/' /etc/php5/apache2/php.ini
 
 # Apache Solr
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get -y install oracle-java7-installer
 wget http://apache.rediris.es/lucene/solr/3.6.2/apache-solr-3.6.2.tgz
 mkdir ~/software
 tar -xvzf apache-solr-3.6.2.tgz -C ~/software/
 
 # Hub for Github
-mkdir -p ~/local/bin
-curl http://defunkt.io/hub/standalone -sLo ~/local/bin/hub && chmod +x ~/local/bin/hub
+sudo apt-get install ruby
+sudo curl http://defunkt.io/hub/standalone -sLo /usr/bin/hub && sudo chmod +x /usr/bin/hub
 
 # VIM configuration
 cd $HOME
