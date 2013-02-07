@@ -1,0 +1,11 @@
+<VirtualHost *:80>
+  DocumentRoot site_dir
+  ServerName host_name
+  RewriteEngine On
+  <Directory root>
+    Options +FollowSymLinks Indexes
+    AllowOverride All
+    order allow,deny
+    allow from all
+  </Directory>
+</VirtualHost>
