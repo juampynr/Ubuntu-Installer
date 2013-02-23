@@ -103,6 +103,9 @@ xdebug.trace_enable_trigger = 1
 xdebug.collect_params = 3
 xdebug.collect_return = 1
 xdebug.max_nesting_level = 500
+xdebug.remote_enable=On
+xdebug.remote_port=9000
+xdebug.remote_host=localhost
 EOF
 sudo sed -i 's/xdebug_so_path/$xdebug_source/' /etc/php5/apache2/php.ini
 
