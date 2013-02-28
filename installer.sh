@@ -4,7 +4,7 @@ sudo apt-get install -y trash-cli xchat curl python-gpgme
 sudo apt-get install -y ubuntu-restricted-extras vlc
 sudo apt-get install -y w32codecs libcurl3 gthumb gimp trash-cli
 sudo apt-get install -y mlocate && sudo updatedb
-sudo apt-get install -y gimp
+sudo apt-get install -y gimp lm-sensors
 
 # Medibuntu
 sudo wget --output-document=/etc/apt/sources.list.d/medibuntu.list http://www.medibuntu.org/sources.list.d/$(lsb_release -cs).list && sudo apt-get --quiet update && sudo apt-get --yes --quiet --allow-unauthenticated install medibuntu-keyring && sudo apt-get --quiet update
