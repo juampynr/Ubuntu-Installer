@@ -1,6 +1,6 @@
 # Creates a virtual host and entry at /etc/hosts for a local site.
 #
-# Usage: sh siteBuild somesite.localhost /path/to/site/root
+# Usage: sh siteBuild.sh somesite.localhost /path/to/site/root
 # see 'template' file and place it under /etc/apache2/sites-available.
 #
 SITE_HOST=$1
