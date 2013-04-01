@@ -82,6 +82,8 @@ sudo sed -i 's/memory_limit = 128/memory_limit = 256/' /etc/php5/apache2/php.ini
 sudo sed -i 's/memory_limit = 128/memory_limit = 0/' /etc/php5/cli/php.ini
 sudo sed -i 's/error_reporting = Off/error_reporting = On/' /etc/php5/apache2/php.ini
 sudo sed -i 's/error_reporting = Off/error_reporting = On/' /etc/php5/cli/php.ini
+sudo sed -i 's/display_errors = Off/display_errors = On/' /etc/php5/apache2/php.ini
+sudo sed -i 's/display_errors = Off/display_errors = On/' /etc/php5/cli/php.ini
 
 # Xdebug setting for the command line
 sudo cat <<EOF >> /etc/php5/cli/php.ini
