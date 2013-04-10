@@ -25,7 +25,7 @@ sudo /etc/init.d/apache2 restart
 
 # Programming tools
 sudo pear channel-update pear.php.net
-sudo pear install -y PHP_Debug sendmail ruby
+sudo pear install -y PHP_Debug sendmail
 
 # Git
 sudo apt-get install -y git-core
@@ -122,6 +122,10 @@ tar -xvzf apache-solr-3.6.2.tgz -C ~/software/
 # Hub for Github
 sudo apt-get install ruby
 sudo curl http://defunkt.io/hub/standalone -sLo /usr/bin/hub && sudo chmod +x /usr/bin/hub
+
+# Compass
+sudo apt-get install ruby
+sudo gem install compass
 
 # VIM configuration
 cd $HOME
