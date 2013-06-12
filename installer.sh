@@ -1,31 +1,23 @@
 # General Tools
 sudo apt-get update
-sudo apt-get install -y trash-cli xchat curl python-gpgme
+sudo apt-get install -y xchat curl
 sudo apt-get install -y ubuntu-restricted-extras vlc
-sudo apt-get install -y w32codecs libcurl3 gthumb gimp trash-cli
+sudo apt-get install -y libcurl3 gthumb trash-cli
 sudo apt-get install -y mlocate && sudo updatedb
-sudo apt-get install -y gimp lm-sensors
+sudo apt-get install -y lm-sensors
 
 # Medibuntu
 sudo wget --output-document=/etc/apt/sources.list.d/medibuntu.list http://www.medibuntu.org/sources.list.d/$(lsb_release -cs).list && sudo apt-get --quiet update && sudo apt-get --yes --quiet --allow-unauthenticated install medibuntu-keyring && sudo apt-get --quiet update
 sudo apt-get install libdvdcss2
 
-# Browsers
-sudo apt-get install -y firefox firebug
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-sudo apt-get install google-chrome-stable
-
 # Apache and PHP
 sudo apt-get install -y apache2 php5-mysql libapache2-mod-php5 mysql-client-5.5 mysql-server php-pear mailutils postfix
 sudo apt-get install -y php5-xsl php5-gd php5-curl
 sudo sh -c 'echo "ServerName localhost" >> /etc/apache2/conf.d/name' && sudo service apache2 restart
-sudo a2enmod rewrite
-sudo /etc/init.d/apache2 restart
 
 # Programming tools
 sudo pear channel-update pear.php.net
-sudo pear install -y PHP_Debug sendmail
+sudo pear install PHP_Debug
 
 # Git
 sudo apt-get install -y git-core
@@ -35,7 +27,7 @@ git config --global color.status auto
 git config --global user.name "Juampy"
 git config --global user.email juampy72@gmail.com
 git config --global alias.st status
-cat Ubuntu-Installer/git-show-branch.txt >> $HOME/.bashrc
+cat ~/Ubuntu-Installer/git-show-branch.txt >> $HOME/.bashrc
 
 # PHP tools
 sudo apt-get install -y php5-dev
@@ -68,15 +60,6 @@ sudo mv drush /usr/share/
 sudo ln -s /usr/share/drush/drush /usr/bin/drush
 drush status
 
-# XDebug
-git clone git://github.com/derickr/xdebug.git
-cd xdebug
-phpize
-./configure --enable-xdebug
-make
-sudo make install
-xdebug_source=`locate xdebug | grep /usr/lib`
-
 # PHP custom configuration
 sudo sed -i 's/memory_limit = 128/memory_limit = 256/' /etc/php5/apache2/php.ini
 sudo sed -i 's/memory_limit = 128/memory_limit = 0/' /etc/php5/cli/php.ini
@@ -84,6 +67,15 @@ sudo sed -i 's/error_reporting = Off/error_reporting = On/' /etc/php5/apache2/ph
 sudo sed -i 's/error_reporting = Off/error_reporting = On/' /etc/php5/cli/php.ini
 sudo sed -i 's/display_errors = Off/display_errors = On/' /etc/php5/apache2/php.ini
 sudo sed -i 's/display_errors = Off/display_errors = On/' /etc/php5/cli/php.ini
+
+# XDebug
+git clone git://github.com/derickr/xdebug.git
+cd xdebug
+sudo phpize
+sudo ./configure --enable-xdebug
+sudo make
+sudo make install
+xdebug_source=`locate xdebug | grep /usr/lib`
 
 # Xdebug setting for the command line
 sudo cat <<EOF >> /etc/php5/cli/php.ini
@@ -120,15 +112,15 @@ mkdir ~/software
 tar -xvzf apache-solr-3.6.2.tgz -C ~/software/
 
 # Hub for Github
-sudo apt-get install ruby
+sudo apt-get -y install ruby
 sudo curl http://defunkt.io/hub/standalone -sLo /usr/bin/hub && sudo chmod +x /usr/bin/hub
 
 # Compass
-sudo apt-get install ruby
+sudo apt-get -y install ruby
 sudo gem install compass
 
 # VIM configuration
-cd $HOME
+cd $home
 drush @none dl vimrc
 drush -v vimrc-install
 
