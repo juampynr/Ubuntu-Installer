@@ -125,8 +125,9 @@ else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w $(parse_git_branch)\$ '
 fi
 
-# Ignore dummy paths when using egrep.
-alias egrep='egrep --exclude=*~ --exclude-dir=.git'
+# Aliases
+alias egrep='egrep --exclude=*~ --exclude-dir=.git --exclude-dir=files'
+alias chmod8='sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX sites/default/files'
 
 # Git autocomplete
 if [ -f ~/.git-completion.bash ]; then
