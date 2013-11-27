@@ -2,7 +2,7 @@
   DocumentRoot site_dir
   ServerName host_name
   RewriteEngine On
-  <Directory root>
+  <Directory site_dir>
     Options +FollowSymLinks Indexes
     AllowOverride All
     order allow,deny
