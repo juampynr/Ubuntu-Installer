@@ -128,6 +128,8 @@ fi
 # Aliases
 alias egrep='egrep --exclude=*~ --exclude-dir=.git --exclude-dir=files'
 alias chmod8='sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX sites/default/files'
+alias hosts='sudo vim /etc/hosts'
+alias resetd8='git checkout . && git pull && sudo chmod 777 -R sites/default && sudo rm -rf sites/default/files && drush si -y'
 
 # Git autocomplete
 if [ -f ~/.git-completion.bash ]; then
