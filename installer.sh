@@ -12,7 +12,7 @@ sudo apt-get install libdvdcss2
 
 # Apache and PHP
 sudo apt-get install -y apache2 php5-mysql libapache2-mod-php5 mysql-client-5.5 mysql-server php-pear mailutils postfix
-sudo apt-get install -y php5-xsl php5-gd php5-curl
+sudo apt-get install -y php5-xsl php5-gd php5-curl php5-json
 sudo sh -c 'echo "ServerName localhost" >> /etc/apache2/conf.d/name' && sudo service apache2 restart
 
 # Programming tools

@@ -3,9 +3,8 @@
   ServerName host_name
   RewriteEngine On
   <Directory site_dir>
-    Options +FollowSymLinks Indexes
+    Options +FollowSymLinks +Indexes
     AllowOverride All
-    order allow,deny
-    allow from all
+    Require all granted
   </Directory>
 </VirtualHost>
