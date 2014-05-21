@@ -3,11 +3,12 @@
 # Usage: sh siteBuild.sh somesite.localhost /path/to/site/root
 # see 'template' file and place it under /etc/apache2/sites-available.
 #
+set -x
 SITE_HOST=$1
 SITE_PATH=$2
-VIRTUAL_HOST="/etc/apache2/sites-available/$1"
+VIRTUAL_HOST="/etc/apache2/sites-available/$SITE_HOST.conf"
 
-sudo cp /etc/apache2/sites-available/template $VIRTUAL_HOST.conf
+sudo cp ./template $VIRTUAL_HOST.conf
 sudo sed -i 's|site_dir|'$SITE_PATH'|g' $VIRTUAL_HOST
 sudo sed -i "s/host_name/$SITE_HOST/g" $VIRTUAL_HOST
 sudo a2ensite $SITE_HOST
