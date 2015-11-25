@@ -1,0 +1,33 @@
+" Extra bundles.
+Bundle 'joonty/vdebug.git'
+
+" Editor overrides.
+set shiftwidth=2                " Use indents of 4 spaces
+set expandtab                   " Tabs are spaces, not tabs
+set tabstop=2                   " An indentation every four columns
+set softtabstop=2               " Let backspace delete indent
+
+" associate *.install and *.module files with with php filetype
+au BufReadPost *.install set syntax=php
+au BufReadPost *.module set syntax=php
+au BufReadPost *.inc set syntax=php
+
+" Easier navigation through buffers
+map gn :bn<cr>
+map gp :bp<cr>
+map g1 :b1<cr>
+map g2 :b2<cr>
+map g3 :b3<cr>
+map g4 :b4<cr>
+map g5 :b5<cr>
+map g6 :b6<cr>
+map g7 :b7<cr>
+map g8 :b8<cr>
+
+" Don't let CtrlP changing the path.
+let g:ctrlp_working_path_mode = '0'
+
+" PHP autocompletion
+au FileType php set omnifunc=phpcomplete#CompletePHP
+let php_sql_query=1
+let php_htmlInStrings=1

@@ -1,0 +1,3 @@
+" Settings to define before .vimrc is loaded.
+
+let g:spf13_no_autochdir = 1
