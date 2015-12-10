@@ -1,3 +1,9 @@
 " Settings to define before .vimrc is loaded.
 
 let g:spf13_no_autochdir = 1
+
+" This makes the completion popup strictly passive.
+let g:spf13_noninvasive_completion = 1
+
+" Disable  omni complete
+let g:spf13_no_omni_complete = 1
