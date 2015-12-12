@@ -25,7 +25,13 @@ git config --global user.name "Juampy"
 git config --global user.email juampy72@gmail.com
 git config --global alias.st status
 git config --global alias.duff 'diff --cached'
-cat ~/projects/Ubuntu-Installer/git-show-branch.txt >> $HOME/.bashrc
+wget https://raw.githubusercontent.com/git/git/8976500cbbb13270398d3b3e07a17b8cc7bff43f/contrib/completion/git-prompt.sh
+mv git-prompt.sh ~/.git-prompt.sh
+cat <<EOT>> ~/.bashrc
+# Show the current Git branch in the command prompt.
+source ~/.git-prompt.sh
+PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+EOT
 
 # PHP tools
 sudo apt-get install -y php5-dev
