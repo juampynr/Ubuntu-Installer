@@ -61,7 +61,7 @@ sudo mv phpunit.phar /usr/local/bin/phpunit
 phpunit --version
 
 # Editing Tools
-sudo apt-get -y install vim vim-gnome
+sudo apt-get -y install vim vim-gnome exuberant-ctags
 curl http://j.mp/spf13-vim3 -L -o - | sh
 cp ~/projects/Ubuntu-Installer/.vimrc.local ~/
 cp ~/projects/Ubuntu-Installer/.vimrc.before.local ~/
