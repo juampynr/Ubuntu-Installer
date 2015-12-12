@@ -34,13 +34,13 @@ sudo pear channel-discover pear.phing.info
 sudo pear install phing/phing
 sudo cp ~/projects/Ubuntu-Installer/php-settings/apache/* /etc/php5/apache2/conf.d/
 sudo cp ~/projects/Ubuntu-Installer/php-settings/cli/* /etc/php5/cli/conf.d/
-
+sudo apt-get install php5-xdebug
 
 # PECL & extensions
 sudo apt-get install php-pear php5-dev
 sudo pecl install uploadprogress
 sudo pecl install oauth
-sudo pecl install xhprof
+sudo pecl install -f xhprof
 echo 'extension=oauth.so' | sudo tee -a /etc/php5/apache2/conf.d/settings.ini
 echo 'extension=oauth.so' | sudo tee -a /etc/php5/cli/conf.d/settings.ini
 echo 'extension=xhprof.so' | sudo tee -a /etc/php5/apache2/conf.d/settings.ini
@@ -70,18 +70,6 @@ chmod u+x drush/drush
 sudo mv drush /usr/share/
 sudo ln -s /usr/share/drush/drush /usr/bin/drush
 drush status
-
-# XDebug
-git clone git://github.com/derickr/xdebug.git
-cd xdebug
-sudo phpize
-sudo ./configure --enable-xdebug
-sudo make
-sudo make install
-xdebug_source=`locate xdebug | grep /usr/lib`
-echo 'extension=xhprof.so' | sudo tee -a /etc/php5/cli/conf.d/xdebug-settings.ini
-echo 'extension=xhprof.so' | sudo tee -a /etc/php5/cli/conf.d/xdebug-settings.ini
-sudo service apache2 restart
 
 # Apache Solr
 sudo add-apt-repository ppa:webupd8team/java
