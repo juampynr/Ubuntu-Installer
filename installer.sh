@@ -77,6 +77,12 @@ sudo mv drush /usr/share/
 sudo ln -s /usr/share/drush/drush /usr/bin/drush
 drush status
 
+# Drupal Console
+curl https://drupalconsole.com/installer -L -o drupal.phar
+sudo mv drupal.phar /usr/local/bin/drupal
+chmod +x /usr/local/bin/drupal
+drupal
+
 # Apache Solr
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
