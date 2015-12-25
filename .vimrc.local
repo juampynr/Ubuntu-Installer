@@ -31,3 +31,6 @@ let g:ctrlp_working_path_mode = '0'
 au FileType php set omnifunc=phpcomplete#CompletePHP
 let php_sql_query=1
 let php_htmlInStrings=1
+
+" Set tags file as hidden.
+set tags=./.tags;,.tags;
