@@ -9,8 +9,8 @@ sudo apt-get install -y lm-sensors
 # Apache and PHP
 sudo apt-get install -y apache2 php5-mysql libapache2-mod-php5 mysql-client-5.5 mysql-server php-pear mailutils postfix
 sudo apt-get install -y php5-xsl php5-gd php5-curl php5-json
-sudo touch /etc/apache2/conf-available/name.conf
-sudo sh -c 'echo "ServerName localhost" >> /etc/apache2/conf-available/name.conf' && a2enconf name && sudo service apache2 restart
+echo "ServerName localhost" | sudo tee /etc/apache2/conf.d/fqdn
+sudo service apache2 restart
 
 # Programming tools
 sudo pear channel-update pear.php.net
