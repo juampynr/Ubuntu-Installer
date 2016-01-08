@@ -62,6 +62,7 @@ phpunit --version
 
 # Editing Tools
 sudo apt-get -y install vim vim-gnome exuberant-ctags
+cp ~/projects/Ubuntu-Installer/.ctags ~/
 curl http://j.mp/spf13-vim3 -L -o - | sh
 cp ~/projects/Ubuntu-Installer/.vimrc.local ~/
 cp ~/projects/Ubuntu-Installer/.vimrc.before.local ~/
