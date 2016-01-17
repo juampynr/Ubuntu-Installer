@@ -1,1 +1,7 @@
 --regex-php=/^[ \t]*trait[ \t]+([a-z0_9_]+)/\1/t,traits/i
+--exclude=sites/default/files/*
+--exclude=vendor/phpunit/php-code-coverage/*
+--langmap=php:.engine.inc.module.theme.install.php
+--php-kinds=cdfi
+--languages=php
+--recurse
