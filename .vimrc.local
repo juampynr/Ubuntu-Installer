@@ -1,6 +1,3 @@
-" Extra bundles.
-Bundle 'joonty/vdebug.git'
-
 " Editor overrides.
 set shiftwidth=2                " Use indents of 4 spaces
 set expandtab                   " Tabs are spaces, not tabs
@@ -34,3 +31,27 @@ let php_htmlInStrings=1
 
 " Set tags file as hidden.
 set tags=./.tags;,.tags;
+
+" Vdebug bundle and settings.
+Bundle 'joonty/vdebug.git'
+if !exists('g:vdebug_options')
+  let g:vdebug_options = {}
+endif
+let g:vdebug_options['continuous_mode'] = 1
+let g:vdebug_options['break_on_open'] = 0
+
+" Disable folding.
+set nofoldenable
+let g:DisableAutoPHPFolding = 1
+
+" Ignore .git files in NERDTee.
+let NERDTreeIgnore = ['\.git$']
+
+" Ignore some files and dirs with CtrP
+if exists("g:ctrlp_user_command")
+    unlet g:ctrlp_user_command
+endif
+let g:ctrlp_custom_ignore = {
+  \ 'file': '\.tags',
+  \ 'dir': 'sites/default/files/simpletest',
+  \ }
