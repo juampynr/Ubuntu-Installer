@@ -55,3 +55,7 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.tags',
   \ 'dir': 'sites/default/files/simpletest',
   \ }
+
+syntax enable
+set background=light
+colorscheme solarized
